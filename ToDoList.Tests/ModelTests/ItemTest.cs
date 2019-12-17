@@ -27,7 +27,7 @@ namespace ToDoList.Tests
     public void GetDescription_ReturnsDescription_String()
     {
       //Arrange
-      string description = "Walk the dog.";
+      string description = "Make Lunch";
       int num = 1;
 
       //Act
@@ -43,7 +43,7 @@ namespace ToDoList.Tests
     public void SetDescription_SetDescription_String()
     {
       // Arrange
-      string description = "Walk the dog.";
+      string description = "Make Lunch";
       int num = 1;
       Item newItem = new Item(description, num);
 
@@ -66,11 +66,6 @@ namespace ToDoList.Tests
 
       // Act
       List<Item> result = Item.GetAll();
-
-      foreach (Item thisItem in result)
-      {
-        Console.WriteLine("Output from empty list GetAll test: " + thisItem.Description);
-      }
 
       // Assert
       CollectionAssert.AreEqual(newList, result);
