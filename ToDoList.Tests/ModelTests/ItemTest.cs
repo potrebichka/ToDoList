@@ -6,57 +6,50 @@ using ToDoList.Models;
 namespace ToDoList.Tests
 {
   [TestClass]
-  public class ItemTest : IDisposable // IDisposable clears all instances before each test method
+  public class ItemTest : IDisposable
   {
+
     public void Dispose()
     {
-      // Comment this out in order to use Console.WriteLine()
       Item.ClearAll();
     }
-
 
     [TestMethod]
     public void ItemConstructor_CreatesInstanceOfItem_Item()
     {
-      Item newItem = new Item("Make Lunch", 7);
+      Item newItem = new Item("test");
       Assert.AreEqual(typeof(Item), newItem.GetType());
     }
-
 
     [TestMethod]
     public void GetDescription_ReturnsDescription_String()
     {
       //Arrange
-      string description = "Make Lunch";
-      int num = 1;
+      string description = "Walk the dog.";
 
       //Act
-      Item newItem = new Item(description, num);
+      Item newItem = new Item(description);
       string result = newItem.Description;
 
       //Assert
       Assert.AreEqual(description, result);
     }
 
-
     [TestMethod]
     public void SetDescription_SetDescription_String()
     {
-      // Arrange
-      string description = "Make Lunch";
-      int num = 1;
-      Item newItem = new Item(description, num);
+      //Arrange
+      string description = "Walk the dog.";
+      Item newItem = new Item(description);
 
-      // Act
+      //Act
       string updatedDescription = "Do the dishes";
-      int updateNum = 10;
       newItem.Description = updatedDescription;
       string result = newItem.Description;
 
-      // Assert
+      //Assert
       Assert.AreEqual(updatedDescription, result);
     }
-
 
     [TestMethod]
     public void GetAll_ReturnsEmptyList_ItemList()
@@ -69,20 +62,16 @@ namespace ToDoList.Tests
 
       // Assert
       CollectionAssert.AreEqual(newList, result);
-
     }
-
 
     [TestMethod]
     public void GetAll_ReturnsItems_ItemList()
     {
       //Arrange
       string description01 = "Walk the dog";
-      int num1 = 1;
       string description02 = "Wash the dishes";
-      int num2 = 2;
-      Item newItem1 = new Item(description01, num1);
-      Item newItem2 = new Item(description02, num2);
+      Item newItem1 = new Item(description01);
+      Item newItem2 = new Item(description02);
       List<Item> newList = new List<Item> { newItem1, newItem2 };
 
       //Act
@@ -90,6 +79,36 @@ namespace ToDoList.Tests
 
       //Assert
       CollectionAssert.AreEqual(newList, result);
+    }
+
+    [TestMethod]
+    public void GetId_ItemsInstantiateWithAnIdAndGetterReturns_Int()
+    {
+      //Arrange
+      string description = "Walk the dog.";
+      Item newItem = new Item(description);
+
+      //Act
+      int result = newItem.Id;
+
+      //Assert
+      Assert.AreEqual(1, result);
+    }
+
+    [TestMethod]
+    public void Find_ReturnsCorrectItem_Item()
+    {
+      //Arrange
+      string description01 = "Walk the dog";
+      string description02 = "Wash the dishes";
+      Item newItem1 = new Item(description01);
+      Item newItem2 = new Item(description02);
+
+      //Act
+      Item result = Item.Find(2);
+
+      //Assert
+      Assert.AreEqual(newItem2, result);
     }
   }
 }
