@@ -1,6 +1,6 @@
 # To Do List
 
-#### _C#, .NET: To Do List, 12/17/2019_
+#### _C#, .NET: To Do List, 01/14/2019_
 
 ## Description
 Create the To Do List app. The app should allow the user to add new items to a to do list. The user should also be able to see a list of the tasks they have already added.
