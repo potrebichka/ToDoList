@@ -21,7 +21,7 @@ Create the To Do List app. The app should allow the user to add new items to a t
 
 1. Clone this repo:
 ```
-$ git clone https://github.com/misakimichy/ToDoList.Solution.git
+$ git clone https://github.com/potrebichka/ToDoList.Solution.git
 ```
 
 2. Go into the repo and run this application:
@@ -33,7 +33,7 @@ $ dotnet run
 * No known bugs at this time.
 
 ## Support and contact details
- misaki.koonce@gmail.com
+potrebich@gmail.com
 
 ## Technologies Used
 _Git, GitHub, C# and .NET Core
