@@ -10,12 +10,17 @@
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.ItemId)
+    @Html.HiddenFor(model => model.Completed)
 
     @Html.LabelFor(model => model.Description)
     @Html.EditorFor(model => model.Description)
 
-    @Html.LabelFor(model => model.Category)
+    @Html.Label("Select category")
     @Html.DropDownList("CategoryId")
+
+
+    @Html.LabelFor(model => model.DueDate)
+    @Html.EditorFor(model => model.DueDate, new { @type = "date"})
 
     <input type="submit" value="Save" />
 }
